@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>ExerciseTracker</title>
+	
+	<script type="text/javascript" src="cordova-1.7.0.js"></script>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDD353fOPh-KBUQ-2ekPCg75uxXRn0D9Tk&sensor=false"></script>
+	<script type="text/javascript" src="json2.js"></script>
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="jquery.mobile-1.1.0.min.js"></script>
+    <script type="text/javascript" src="exercisetracker.js"></script>
+	<link rel="stylesheet" href="jquery.mobile-1.1.0.min.css" />
+	
+</head>
+<body>
+<!-- Start of Home page -->
+<div data-role="page" id="home">
+
+	<div data-role="header">
+	
+		<h1>Home</h1>
+	
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+				<li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li>
+				<li><a href="#history" data-transition="none" data-icon="star">History</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">
+		<p>Welcome to the <em>ExerciseTracker</em> app. By clicking <em>Track Workout</em> you can record your workouts using the GPS feature on your phone. Learn how to build this app by reading <em>mobile.tutsplus.com</em>.</p>
+	
+		<button id="home_network_button" data-icon="check">Internet Access Enabled</button>
+		<button id="home_clearstorage_button">Clear local storage</button>
+		<button id="home_seedgps_button">Load Seed GPS Data</button>
+	</div>
+
+
+</div>
+<!-- End of Home page -->
+
+<!-- Start of Trackwork Out page -->
+<div data-role="page" id="startTracking">
+
+	<div data-role="header">
+		<h1>Track Workout</h1>
+		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+				<li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li>
+				<li><a href="#history" data-transition="none" data-icon="star">History</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">	
+		<p id="startTracking_status"></p>
+			<div data-role="fieldcontain" class="ui-hide-label">
+				<label for="track_id">Track ID/Name:</label>
+				<input type="text" name="track_id" id="track_id" placeholder="Workout ID/Name"/>
+			</div>
+
+		<button data-role="button" id="startTracking_start">Start Tracking</button>
+		<button data-role="button" id="startTracking_stop">Stop Tracking</button>  
+		
+				<p id="startTracking_info"></p>
+		
+		
+	</div>
+
+
+</div><!-- /page -->
+
+<!-- Start of the History page -->
+<div data-role="page" id="history">
+
+    <div data-role="header">
+        <h1>History</h1>
+        
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+                <li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li>
+                <li><a href="#history" data-transition="none" data-icon="star">History</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">	
+        <p id="tracks_recorded"></p>
+        
+        <ul data-role="listview" id="history_tracklist">
+
+        </ul>
+    </div>
+
+
+</div><!-- /page -->
+
+<!-- Track Info page -->
+<div data-role="page" id="track_info">
+
+	<div data-role="header">
+		<h1>Viewing Single Workout</h1>
+		
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
+				<li><a href="#startTracking" data-transition="none" data-icon="plus">Track Workout</a></li>
+				<li><a href="#history" data-transition="none" data-icon="star">History</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div data-role="content">	
+		<p id="track_info_info"></p>
+		
+		<div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;"></div>
+		
+	</div>
+
+
+</div><!-- /page -->
+
+
+</body>
+</html>
